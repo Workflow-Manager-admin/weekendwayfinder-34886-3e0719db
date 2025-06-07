@@ -2,8 +2,11 @@
 .planner-bg {
   min-height: 100vh;
   width: 100vw;
-  /* New, visually relevant Unsplash travel/plan image & compatible gradient */
-  background: linear-gradient(127deg, #f6f6f6 60%, #f9f4ec 100%), url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=80') center right / cover no-repeat;
+  /* Map + travel planner Unsplash image for the trip planner vibe */
+  background:
+    linear-gradient(122deg, #f6f6f6cc 52%, #ecefffcc 100%),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1400&q=80')
+      center center / cover no-repeat;
   display: flex;
   align-items: flex-start;
   justify-content: center;
