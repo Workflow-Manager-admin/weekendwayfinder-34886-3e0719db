@@ -1,0 +1,29 @@
+<div class="signin-bg">
+  <div class="signin-container">
+    <h1>WeekendWayfinder</h1>
+    <p class="subtitle">Plan your ideal getaway in minutes</p>
+    <form (submit)="signIn(); $event.preventDefault()">
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        placeholder="Email"
+        class="input"
+        required
+        autocomplete="username"
+      />
+      <input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Password"
+        class="input"
+        required
+        autocomplete="current-password"
+      />
+      <button type="submit" class="btn-primary">Sign In</button>
+    </form>
+    <div *ngIf="error" class="error">{{ error }}</div>
+    <div *ngIf="success" class="success">Signed in! Redirecting...</div>
+  </div>
+</div>

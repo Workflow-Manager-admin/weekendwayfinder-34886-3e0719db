@@ -1,0 +1,65 @@
+<div class="planner-bg">
+  <div class="planner-container">
+    <h1>Weekend Trip Planner</h1>
+    <form class="planner-form" (submit)="generate(); $event.preventDefault()">
+      <input
+        type="text"
+        [(ngModel)]="location"
+        name="location"
+        placeholder="Your City or Location (optional)"
+        class="input"
+        autocomplete="off"
+      />
+      <div class="flex-row">
+        <select [(ngModel)]="mood" name="mood" class="input select">
+          <option *ngFor="let m of moods" [value]="m">{{ m }}</option>
+        </select>
+        <input
+          type="number"
+          min="50"
+          max="2000"
+          [(ngModel)]="budget"
+          name="budget"
+          class="input"
+          placeholder="Budget $"
+        />
+      </div>
+      <button class="btn-accent" type="submit" [disabled]="loading">{{ loading ? 'Thinking...' : 'Generate Suggestions' }}</button>
+    </form>
+
+    <div class="cards-section" *ngIf="suggestions">
+      <div class="planner-card">
+        <div class="card-title">Destination</div>
+        <div class="card-content">{{ suggestions.destination }}</div>
+      </div>
+      <div class="planner-card">
+        <div class="card-title">Activities</div>
+        <div class="card-content">
+          <ul>
+            <li *ngFor="let activity of suggestions.activities">{{ activity }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="planner-card">
+        <div class="card-title">Food & Treats</div>
+        <div class="card-content">
+          <ul>
+            <li *ngFor="let food of suggestions.food">{{ food }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="planner-card">
+        <div class="card-title">Packing List</div>
+        <div class="card-content">
+          <ul>
+            <li *ngFor="let item of suggestions.packing">{{ item }}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="planner-card budget">
+        <div class="card-title">Budget</div>
+        <div class="card-content">${{ suggestions.budget }}</div>
+      </div>
+    </div>
+  </div>
+</div>
