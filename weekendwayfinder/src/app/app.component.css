@@ -6,7 +6,6 @@
   --accent: #f9a826;
   --background: #fffefa;
 
-  /* Basic font and reset */
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-size: 16px;
   background: var(--secondary);
@@ -15,12 +14,64 @@
   box-sizing: border-box;
 }
 
-/* Remove outline for mouse, keep for keyboard */
-*:focus:not(:focus-visible) {
-  outline: none;
+.wwf-navbar {
+  width: 100%;
+  min-height: 60px;
+  background: #fffefaee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 12px #0001;
+  padding: 0 1.5rem;
+  position: sticky;
+  z-index: 10;
+  top: 0;
 }
 
-/* Remove default margin/padding, set box-sizing globally */
+.wwf-navbar-title {
+  display: flex;
+  align-items: center;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 1.09rem;
+  color: var(--primary);
+  letter-spacing: 0.4px;
+  gap: 0.6em;
+  user-select: none;
+}
+.wwf-navbar-logo {
+  font-size: 1.5rem;
+  margin-right: 0.38em;
+}
+.wwf-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+}
+.wwf-navbar-btn {
+  color: var(--primary);
+  background: #f6f6f6;
+  padding: 0.46em 1.09em;
+  border-radius: 7px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  box-shadow: 0 0 0 transparent;
+  transition: background 0.18s, color 0.14s, box-shadow 0.13s;
+  margin-left: 0.08em;
+}
+.wwf-navbar-btn:hover, .wwf-navbar-btn.active, .wwf-navbar-btn:focus {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 1px 8px #ffd19133;
+}
+
+.wwf-main {
+  min-height: calc(100vh - 60px);
+  width: 100vw;
+}
+
 html, body {
   padding: 0;
   margin: 0;
@@ -29,4 +80,29 @@ html, body {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   background: var(--secondary);
   color: var(--primary);
+}
+
+/* Remove outline for mouse, keep for keyboard */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .wwf-navbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.2em;
+    padding: 0 0.5em;
+    min-height: 44px;
+  }
+  .wwf-navbar-title {
+    justify-content: center;
+    font-size: 1.02rem;
+    padding-top: 0.35em;
+  }
+  .wwf-navbar-actions {
+    justify-content: center;
+    gap: 0.6em;
+    padding-bottom: 0.3em;
+  }
 }

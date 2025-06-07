@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -18,11 +18,9 @@ export class SigninComponent {
   error: string | null = null;
   success = false;
 
-  // router is used, just not referenced elsewhere directly
-  constructor(private router: Router) {}
-
   // PUBLIC_INTERFACE
   signIn() {
+    const router = inject(Router);
     // Simple client-side "authentication": accept any non-empty values, store username in localStorage.
     if (!this.email || !this.password) {
       this.error = 'Please enter your email and password.';
@@ -38,10 +36,10 @@ export class SigninComponent {
     // Simulate short delay then redirect to Home
     if (typeof globalThis.setTimeout !== 'undefined') {
       globalThis.setTimeout(() => {
-        this.router.navigate(['/home']);
+        router.navigate(['/home']);
       }, 800);
     } else {
-      this.router.navigate(['/home']);
+      router.navigate(['/home']);
     }
   }
 }

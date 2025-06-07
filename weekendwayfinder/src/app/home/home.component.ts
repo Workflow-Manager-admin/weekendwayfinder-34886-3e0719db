@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -14,8 +14,7 @@ import { CommonModule } from '@angular/common';
 export class HomeComponent {
   userName: string = 'Traveler';
 
-  // router is used, just not referenced elsewhere directly
-  constructor(private router: Router) {
+  constructor() {
     // SSR-safe access to localStorage
     let email = '';
     if (typeof globalThis.localStorage !== 'undefined') {
@@ -30,7 +29,8 @@ export class HomeComponent {
 
   // PUBLIC_INTERFACE
   planMyTrip() {
-    this.router.navigate(['/planner']);
+    const router = inject(Router);
+    router.navigate(['/planner']);
   }
 
   private capitalize(name: string): string {

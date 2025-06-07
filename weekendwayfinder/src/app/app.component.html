@@ -1,1 +1,13 @@
-<router-outlet></router-outlet>
+<nav class="wwf-navbar">
+  <div class="wwf-navbar-title">
+    <span class="wwf-navbar-logo">&#127757;</span>
+    <span class="wwf-navbar-name">WeekendWayfinder</span>
+  </div>
+  <div class="wwf-navbar-actions">
+    <a routerLink="/home" routerLinkActive="active" class="wwf-navbar-btn">Home</a>
+    <a routerLink="/signin" routerLinkActive="active" class="wwf-navbar-btn">Sign-In</a>
+  </div>
+</nav>
+<main class="wwf-main">
+  <router-outlet></router-outlet>
+</main>

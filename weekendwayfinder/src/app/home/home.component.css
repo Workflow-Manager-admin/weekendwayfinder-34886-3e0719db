@@ -4,11 +4,12 @@
 .home-bg {
   min-height: 100vh;
   min-width: 100vw;
-  background: linear-gradient(117deg, #f6f6f6 60%, #d7fafa 100%), url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1200&q=80') 0% 0%/cover no-repeat;
+  background: linear-gradient(117deg, #f6f6f6 60%, #d7fafa 100%), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80') center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Inter', 'Montserrat', sans-serif;
+  margin-top: 64px;
 }
 
 .welcome-box {
