@@ -4,8 +4,16 @@
     <span class="wwf-navbar-name">WeekendWayfinder</span>
   </div>
   <div class="wwf-navbar-actions">
-    <a routerLink="/home" routerLinkActive="active" class="wwf-navbar-btn">Home</a>
-    <a routerLink="/signin" routerLinkActive="active" class="wwf-navbar-btn">Sign-In</a>
+    <button class="wwf-navbar-btn"
+            [class.active]="activeRoute === '/home'"
+            (click)="navigateTo('/home')">
+      Home
+    </button>
+    <button class="wwf-navbar-btn"
+            [class.active]="activeRoute === '/signin'"
+            (click)="navigateTo('/signin')">
+      Sign-In
+    </button>
   </div>
 </nav>
 <main class="wwf-main">
